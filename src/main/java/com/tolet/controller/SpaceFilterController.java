@@ -19,12 +19,13 @@ public class SpaceFilterController {
 
     @GetMapping("district/{district}")
     public List<Space> filterSpaceByDistrict(@PathVariable String district ) {
-        return spaceRepository.findByDistrict(district);
+        return spaceRepository.findByDistrictOrderByArea(district);
+
     }
 
     @GetMapping("area/{area}")
     public List<Space> filterSpaceByArea(@PathVariable String area ) {
-        return spaceRepository.findByArea(area);
+        return spaceRepository.findByAreaOrderBySquareFeet(area);
     }
 
     @GetMapping("spaceType/{spaceType}")

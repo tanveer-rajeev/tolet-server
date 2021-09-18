@@ -8,7 +8,10 @@ import java.util.List;
 
 @Repository
 public interface SpaceRepository extends JpaRepository<Space,Integer> {
-     List<Space> findByArea(String area);
-     List<Space> findByDistrict(String district);
+     List<Space> findByAreaOrderBySquareFeet(String area);
+     List<Space> findByDistrictOrderByArea(String district);
      List<Space> findBySpaceType(String spaceType);
+
+
+
 }
