@@ -32,4 +32,13 @@ public class SpaceFilterController {
     public List<Space> filterSpaceByTypeOfSpace(@PathVariable String spaceType ) {
         return spaceRepository.findBySpaceType(spaceType);
     }
+
+    @GetMapping("rentSort/{rent}")
+    public List<Space> filterByMonthlyRent(@PathVariable Integer rent){
+        return spaceRepository.findByMonthlyRentOrAdvancedRent(rent);
+    }
+    @GetMapping("rentRange/{rent1}/{rent2}")
+    public List<Space> findByRentRange(@PathVariable Integer rent1,@PathVariable Integer rent2){
+        return spaceRepository.findByMonthlyRentBetweenRange(rent1,rent2);
+    }
 }
