@@ -13,7 +13,7 @@ import java.util.Set;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Space {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String district;
     private String area;
@@ -24,9 +24,12 @@ public class Space {
     private Integer monthlyRent;
     private Integer perDayHourlyRent;
     private Integer advanceRent;
-    private String spaceType;
     private Integer serviceCharge;
     private boolean isWaterGasBillIncluded;
+
+    @ManyToOne
+    @JoinColumn(name = "spaceType")
+    private SpaceType spaceType;
 
     @JsonIgnore
     @ManyToOne

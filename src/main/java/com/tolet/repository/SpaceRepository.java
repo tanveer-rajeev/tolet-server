@@ -14,8 +14,6 @@ public interface SpaceRepository extends JpaRepository<Space, Integer> {
 
     List<Space> findByDistrictOrderByArea(String district);
 
-    List<Space> findBySpaceType(String spaceType);
-
     @Query("select s from Space s where s.monthlyRent = ?1 or s.advanceRent=?1")
     List<Space> findByMonthlyRentOrAdvancedRent(Integer monthlyRent);
 

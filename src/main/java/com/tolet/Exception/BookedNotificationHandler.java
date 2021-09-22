@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class BookedNotificationHandler extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
-    @Autowired
+
     private BookedInfo bookedInfo;
 
     public BookedNotificationHandler(String message,BookedInfo bookingInformation) {
