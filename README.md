@@ -8,8 +8,10 @@
      - For booking restaurant, temporary space, hotel, Convention Hall and Community center if same date conflict then other available dates will be suggested.
     
 ```
-   The backend part has been completed along with just basic needs. It will be updated with more features after completed the frontend part.
-   Frontend part is in progress
+   The backend part has been completed along with just basic needs.
+   It will be updated with more features after completed the frontend part.
+   
+   Frontend part is in progress...
 ```
 
 
