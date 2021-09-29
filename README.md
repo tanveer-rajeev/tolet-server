@@ -1,4 +1,4 @@
-# To-Let   (User Interface In Progress...)
+# To-Let 
 
 ## Features
    * This project provides help to find out different types of to-let / booking space by filtering user required
@@ -7,7 +7,10 @@
      - Some small business needs a space for temporary that provides per day hourly payment service. Those kinds of space can be finds here and as well as post here.
      - For booking restaurant, temporary space, hotel, Convention Hall and Community center if same date conflict then other available dates will be suggested.
     
-
+```
+   Backend part has completed 
+   Frontend part is in progress
+```
 
 
 
