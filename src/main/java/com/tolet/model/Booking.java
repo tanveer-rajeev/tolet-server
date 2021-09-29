@@ -22,4 +22,5 @@ public class Booking {
     @JoinColumn(name = "spaceId")
     private Space space;
 
+
 }

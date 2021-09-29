@@ -8,6 +8,6 @@ import java.text.ParseException;
 
 public interface BookingService {
     Booking getBookingById(Integer id);
-    ResponseEntity<?> makeBooking(BookingDTO booking, String roomName) throws ParseException;
-    int getCapacityFreeWorkingPlace(String requestedBookingDate) throws ParseException;
+    ResponseEntity<?> makeBooking(Booking booking, Integer spaceId) throws ParseException;
+
 }

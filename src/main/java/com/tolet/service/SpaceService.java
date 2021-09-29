@@ -12,7 +12,7 @@ public interface SpaceService {
     List<Space> getAllSpaces();
     ResponseEntity<Space> createSpace(Space space, Integer userId,Integer spaceTypeId);
     Image addImage(Image image, Integer id);
-    Set<Image> getImages(Integer id);
+    List<Image> getImages(Integer id);
     ResponseEntity<HttpStatus> deleteSpace(Integer userId);
-
+    List<String> getAllImageURL(Integer spaceId);
 }

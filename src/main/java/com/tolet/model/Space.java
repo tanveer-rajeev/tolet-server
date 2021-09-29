@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -15,6 +16,7 @@ public class Space {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String spaceName;
     private String district;
     private String area;
     private String location;
@@ -38,9 +40,9 @@ public class Space {
 
     @JsonIgnore
     @OneToMany(mappedBy = "space", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    private Set<Booking> bookings;
+    private List<Booking> bookings;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "space")
-    private Set<Image> imageURL_list;
+    @OneToMany(mappedBy = "space", orphanRemoval = true)
+    private List<Image> imageURL_list;
 }

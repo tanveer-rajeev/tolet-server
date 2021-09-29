@@ -13,9 +13,8 @@ import com.tolet.service.SpaceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class SpaceServiceImplementation implements SpaceService {
@@ -38,10 +37,10 @@ public class SpaceServiceImplementation implements SpaceService {
     }
 
     @Override
-    public ResponseEntity<Space> createSpace(Space space, Integer userId,Integer spaceTpeId) {
+    public ResponseEntity<Space> createSpace(Space space, Integer userId, Integer spaceTpeId) {
         SpaceType spaceType = spaceTypeRepository.findById(spaceTpeId)
                 .stream().filter(spaceType1 -> spaceType1.getId().equals(spaceTpeId))
-                .findFirst().orElseThrow(()-> new ResourceNotFoundException("Space type not found"));
+                .findFirst().orElseThrow(() -> new ResourceNotFoundException("Space type not found"));
         User user = userRepository.findById(userId).stream()
                 .filter(user1 -> user1.getId().equals(userId))
                 .findFirst().orElseThrow(() -> new ResourceNotFoundException("User not found"));
@@ -51,7 +50,7 @@ public class SpaceServiceImplementation implements SpaceService {
         return ResponseEntity.ok().body(space);
     }
 
-    public Space getSpaceById(Integer id) {
+    public  Space getSpaceById(Integer id) {
         return spaceRepository
                 .findById(id)
                 .stream()
@@ -71,8 +70,9 @@ public class SpaceServiceImplementation implements SpaceService {
     }
 
     @Override
-    public Set<Image> getImages(Integer id) {
+    public List<Image> getImages(Integer id) {
         Space space = getSpaceById(id);
+        System.out.println(space.getImageURL_list());
         return space.getImageURL_list();
     }
 
@@ -80,7 +80,17 @@ public class SpaceServiceImplementation implements SpaceService {
     public ResponseEntity<HttpStatus> deleteSpace(Integer userId) {
         Space space = getSpaceById(userId);
         spaceRepository.delete(space);
-       return ResponseEntity.ok().body(HttpStatus.ACCEPTED) ;
+        return ResponseEntity.ok().body(HttpStatus.ACCEPTED);
+    }
+
+    @Override
+    public List<String> getAllImageURL(Integer spaceId) {
+        Space space = getSpaceById(spaceId);
+        return imageRepository
+                .findAll().stream()
+                .filter(image -> image.getSpace().equals(space))
+                .map(Image::getImageURL)
+                .collect(Collectors.toList());
     }
 
 }

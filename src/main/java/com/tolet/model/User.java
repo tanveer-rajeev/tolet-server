@@ -22,7 +22,7 @@ public class User implements Serializable {
 
     private String password;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner",cascade = CascadeType.REMOVE,orphanRemoval = true)
     private Set<Space> spaces;
 
 }
