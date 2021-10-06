@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.Collection;
 import java.util.List;
 
-public class MyUserDetails implements UserDetails {
+public class ApplicationUserDetails implements UserDetails {
 
 
     private final String userName;
@@ -22,9 +22,9 @@ public class MyUserDetails implements UserDetails {
     private final boolean credentialsNonExpired;
     private final boolean enabled;
 
-    public MyUserDetails(String userName , String password , List<? extends GrantedAuthority> authorities ,
-                         boolean accountNonExpired , boolean accountNonLocked , boolean credentialsNonExpired ,
-                         boolean enabled) {
+    public ApplicationUserDetails(String userName , String password , List<? extends GrantedAuthority> authorities ,
+                                  boolean accountNonExpired , boolean accountNonLocked , boolean credentialsNonExpired ,
+                                  boolean enabled) {
         this.userName              = userName;
         this.authorities           = getAuthorities();
         this.password              = password;

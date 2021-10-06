@@ -1,16 +1,10 @@
 package com.tolet.service;
-
-
-import com.tolet.DTO.UserDTO;
 import com.tolet.model.User;
-
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
 
 public interface UserService extends UserDetailsService {
     User getUserById(Integer integer);
     User getUserByName(String name);
-    ResponseEntity<?> signUpUser(UserDTO user) throws Exception;
+    User signUpUser(User user) throws Exception;
 
 }

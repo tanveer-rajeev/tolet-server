@@ -1,26 +1,24 @@
 package com.tolet.ServiceImplementation;
 
-import com.tolet.DTO.UserDTO;
 import com.tolet.Exception.ResourceNotFoundException;
 import com.tolet.Utility.Validation;
 import com.tolet.model.User;
 import com.tolet.repository.UserRepository;
-import com.tolet.security.MyUserDetails;
+import com.tolet.security.ApplicationUserDetails;
 import com.tolet.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
 
 @Service
+@Qualifier("userServiceImplementation")
 public class UserServiceImplementation implements UserService {
 
     private final UserRepository userRepository;
@@ -54,12 +52,13 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User getUserByName(String name) {
-        return userRepository.findByUsername(name);
+        User user = userRepository.findByUsername(name);
+        return user;
     }
 
 
     @Override
-    public ResponseEntity<?> signUpUser(UserDTO userDTO) throws Exception {
+    public User signUpUser(User userDTO) throws Exception {
 
 
         if (userRepository.findByUsername(userDTO.getUsername()) != null) {
@@ -78,7 +77,7 @@ public class UserServiceImplementation implements UserService {
 
         User user = modelMapper.map(userDTO,User.class);
         user = userRepository.save(user);
-        return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+        return user;
     }
 
 
@@ -90,7 +89,7 @@ public class UserServiceImplementation implements UserService {
             throw new ResourceNotFoundException("- User name not found in the system: " );
         }
 
-        return new MyUserDetails(user.getUsername() , user.getPassword() , new ArrayList<>() , true , true , true ,
+        return new ApplicationUserDetails(user.getUsername() , user.getPassword() , new ArrayList<>() , true , true , true ,
                 true);
 
     }

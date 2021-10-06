@@ -1,5 +1,4 @@
 package com.tolet.security;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,7 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -22,7 +20,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public SecurityConfiguration(UserDetailsService userDetailsService , BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsService    = userDetailsService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-
     }
 
 
