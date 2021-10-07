@@ -1,7 +1,7 @@
 package com.tolet.Exception;
 
-import com.tolet.DTO.BookedInfo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.tolet.BookingService.BookedInfo;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

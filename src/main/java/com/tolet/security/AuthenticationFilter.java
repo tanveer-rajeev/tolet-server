@@ -1,8 +1,6 @@
 package com.tolet.security;
-
-import com.tolet.model.User;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tolet.UserService.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,8 +1,9 @@
 package com.tolet.security;
 
 import com.tolet.SpringApplicationContext;
-import com.tolet.model.User;
-import com.tolet.service.UserService;
+
+import com.tolet.UserService.User;
+import com.tolet.UserService.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 

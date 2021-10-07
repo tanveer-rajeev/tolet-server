@@ -1,6 +1,6 @@
 package com.tolet.Exception;
 
-import com.tolet.DTO.BookedInfo;
+import com.tolet.BookingService.BookedInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
