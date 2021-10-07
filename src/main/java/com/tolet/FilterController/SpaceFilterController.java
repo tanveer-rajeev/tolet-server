@@ -1,4 +1,4 @@
-package com.tolet.controller;
+package com.tolet.FilterController;
 
 import com.tolet.LivingService.LivingSpace;
 import com.tolet.LivingService.LivingSpaceRepository;
