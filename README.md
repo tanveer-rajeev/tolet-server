@@ -1,32 +1,70 @@
 # To-Let  (Frontend repo -->[Frontend](https://github.com/tanveer-rajeev/tolet-client))
 
 ## Features
-   * This project provides help to find out different types of to-let / booking space by filtering user required
-     - Filtering can be square feet, location, per day booking, rent range etc.
-     - User will be able to make a booking or create own to-let.
+   * This project provides help to find out and also post a new different types of to-let such as living or business space. 
      - Some small business needs a space for temporary that provides per day hourly payment service. Those kinds of space can be finds here and as well as post here.
-     - For booking restaurant, temporary space, hotel, Convention Hall and Community center if same date conflict then other available dates will be suggested.
+     - For short time space if same date conflict then other available dates will be suggested.
     
+
+## Entity Relationship Diagram
+![CommercialTolet](https://user-images.githubusercontent.com/39630470/137129240-890b5cf8-4f4c-45fd-bc78-436fa26d6f93.PNG)
+
+## How to run
+Prerequisite
+* JDK 1.8
+* Maven 4.0.0
 ```
-   The backend part has been completed along with just basic needs.
-   It will be updated with more features after completed the frontend part.
-   
-   Frontend part is in progress...
+mvn install
 ```
+Run
+```
+mvn spring-boot:run
+```
+## Api Documentation
 
-
-
-
-
-
-
-
-
-## Screenshots
-
-### Login page
-![Login page](https://user-images.githubusercontent.com/39630470/135303097-6ae8c041-73ee-40a7-a003-0f6a1d9c3ec9.PNG)
-### Space Types
-![Space Types](https://user-images.githubusercontent.com/39630470/135303733-2c21dc60-a14e-45c5-80ad-76dc66a30223.PNG)
-### Space Page
-![Space Page](https://user-images.githubusercontent.com/39630470/135303020-bd8a00b3-c489-49b8-86fa-01e7aa49fa86.PNG)
+- Post request for create tolet
+```
+localhost:8080/api/tolet/userId/2
+```
+Request Body
+```
+{
+    "district":"Dhaka",
+    "localArea":"Khilgoan",
+    "address":"21, B-block khilgoan taltola",
+    "floorNumber":1,
+    "squareFeet":1500,
+    "perSquareRate":7000,
+    "monthlyRent":50000,
+    "hourlyRent":0,
+    "advancePayment":400000,
+    "serviceCharge":5000
+}
+```
+- Put request for update tolet
+```
+localhost:8080/api/tolet/spaceId/5/userId/3
+```
+> Search tolets by district, area, rent range 
+```
+localhost:8080/api/tolet/searchBy/district/{district}
+localhost:8080/api/tolet/searchBy/district/{localArea}
+localhost:8080/api/tolet/searchBy/monthlyRent/{rent}
+localhost:8080/api/tolet/searchBy/rentRange/{rent}
+```
+> This API endpoints helps to find out short time tolets 
+```
+localhost:8080/api/tolet/searchBy/hourlyRent/{rent}
+```
+* Booking APIs  endpoint
+```
+localhost:8080/api/booking/{toletId}
+```
+Request Body
+```
+{
+    "username":"Abdur Rahman",
+    "phoneNumber":"+8801921854091",
+    "bookingDate":"2021-09-30"
+}
+```
