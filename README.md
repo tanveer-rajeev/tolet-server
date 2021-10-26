@@ -24,7 +24,7 @@ mvn spring-boot:run
 
 - Post request for create tolet
 ```
-localhost:8080/api/tolet/userId/2
+/api/tolet/userId/2
 ```
 Request Body
 ```
@@ -43,22 +43,22 @@ Request Body
 ```
 - Put request for update tolet
 ```
-localhost:8080/api/tolet/spaceId/5/userId/3
+/api/tolet/spaceId/5/userId/3
 ```
 > Search tolets by district, area, rent range 
 ```
-localhost:8080/api/tolet/searchBy/district/{district}
-localhost:8080/api/tolet/searchBy/district/{localArea}
-localhost:8080/api/tolet/searchBy/monthlyRent/{rent}
-localhost:8080/api/tolet/searchBy/rentRange/{rent}
+/api/tolet/searchBy/district/{district}
+/api/tolet/searchBy/district/{localArea}
+/api/tolet/searchBy/monthlyRent/{rent}
+/api/tolet/searchBy/rentRange/{rent}
 ```
 > This API endpoints helps to find out short time tolets 
 ```
-localhost:8080/api/tolet/searchBy/hourlyRent/{rent}
+/api/tolet/searchBy/hourlyRent/{rent}
 ```
 * Booking APIs  endpoint
 ```
-localhost:8080/api/booking/{toletId}
+/api/booking/{toletId}
 ```
 Request Body
 ```
