@@ -1,4 +1,4 @@
-# To-Let  (Frontend repo -->[Frontend](https://github.com/tanveer-rajeev/tolet-client))
+
 
 ## Features
    * This project provides help to find out and also post a new different types of to-let such as living or business space. 
